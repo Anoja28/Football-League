@@ -70,7 +70,7 @@ public class SecondaryController {
 
     private void tableSection() {
         List<Player> players = new ArrayList<>();
-        players.add(new Player("Kevin", "Trap", Club.SGE, 1, Position.GOAL, 35));
+        players.add(new Player("Kevin", "Trapp", Club.SGE, 1, Position.GOAL, 35));
         players.add(new Player("Evan", "Ndicka", Club.SGE, 2, Position.DEF, 35));
         players.add(new Player("Kristijan", "Jakić", Club.SGE, 6, Position.MID, 35));
         players.add(new Player("Randal", "Kolo Muani", Club.SGE, 9, Position.ATK, 35));

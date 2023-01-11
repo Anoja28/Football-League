@@ -17,7 +17,7 @@
     <children>
         <HBox fillHeight="true" prefHeight="500" VBox.vgrow="always">
             <VBox styleClass="container-menu">
-                <Label text="Hello, Hatice!" style="-fx-font-size: 20" />
+                <Label text="Hello, User!" style="-fx-font-size: 20" />
                 <Region prefHeight="40" />
                 <VBox fx:id="menuContainer" spacing="20.0">
                     <Text text="Home" />

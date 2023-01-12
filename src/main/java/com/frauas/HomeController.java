@@ -62,7 +62,7 @@ public class HomeController {
 
     private void tableSection() {
         List<Player> players = new ArrayList<>();
-        players.add(new Player("Kevin", "Trap", Team.SGE, 1, Position.GOAL));
+        players.add(new Player("Kevin", "Trapp", Team.SGE, 1, Position.GOAL));
         players.add(new Player("Evan", "Ndicka", Team.SGE, 2, Position.DEF));
         players.add(new Player("Kristijan", "Jakić", Team.SGE, 6, Position.MID));
         players.add(new Player("Randal", "Kolo Muani", Team.SGE, 9, Position.ATK));
@@ -70,8 +70,6 @@ public class HomeController {
         players.add(new Player("Evan", "Ndicka", Team.SGE, 2, Position.DEF));
         players.add(new Player("Kristijan", "Jakić", Team.SGE, 6, Position.MID));
         players.add(new Player("Randal", "Kolo Muani", Team.SGE, 9, Position.ATK));
-
-        // List<Player> players = DatabaseAPI.getPlayers();
 
         List<String> tableHeaderCells = Arrays.asList("first name", "last name", "club", "number", "position", "age");
         HBox tableHeader = new HBox();

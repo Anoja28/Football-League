@@ -4,6 +4,7 @@ com\frauas\CreateController$1.class
 com\frauas\App.class
 com\frauas\models\Player.class
 com\frauas\database\DatabaseAPI.class
+com\frauas\PlayersController.class
 com\frauas\PrimaryController.class
 com\frauas\models\Team.class
 com\frauas\models\Position.class

@@ -18,9 +18,10 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 1280, 720);
-        scene.getStylesheets().add(App.class.getResource("primary.css").toExternalForm());
+        scene.getStylesheets().add(App.class.getResource("style/primary.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void setStyle(String css) {
@@ -31,7 +32,7 @@ public class App extends Application {
         scene.setRoot(loadFXML(fxml));
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }

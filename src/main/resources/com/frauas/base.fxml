@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="20" xmlns="http://javafx.com/javafx/8.0.171"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frauas.BaseController"
+    VBox.vgrow="always" HBox.hgrow="always">
+    <children>
+        <HBox fillHeight="true" prefHeight="500" VBox.vgrow="always">
+            <VBox styleClass="container-menu">
+                <Label text="${'FOOTBALL\nLEAGUE\nDATABASE'}"
+                    style="-fx-font-size: 14; -fx-text-fill: white; -fx-font-weight: 700;" />
+                <Region prefHeight="40" />
+                <VBox fx:id="menuContainer" spacing="0">
+                    <Button fx:id="tabHome" text="Home Dashboard" styleClass="menu-tab"
+                        prefWidth="${menuContainer.width}" onAction="#gotoHome"
+                        alignment="center_left" />
+                    <Button fx:id="tabMatches" text="Matches Overview" styleClass="menu-tab"
+                        prefWidth="${menuContainer.width}" onAction="#gotoMatches"
+                        alignment="center_left" />
+                    <Button fx:id="tabPlayers" text="Players Table" styleClass="menu-tab"
+                        prefWidth="${menuContainer.width}" onAction="#gotoPlayers"
+                        alignment="center_left" />
+                    <Button fx:id="tabCreate" text="Create Player" styleClass="menu-tab"
+                        prefWidth="${menuContainer.width}" onAction="#gotoCreate"
+                        alignment="center_left" />
+                </VBox>
+                <Region VBox.vgrow="always" />
+                <Button fx:id="secondaryButton" text="Sign Out" styleClass="btn"
+                    onAction="#switchToPrimary" />
+                <Region prefHeight="20" />
+                <Label fx:id="msg" />
+            </VBox>
+            <ScrollPane fx:id="scrollPane" style="-fx-background-color:transparent"
+                HBox.hgrow="always" />
+        </HBox>
+    </children>
+</VBox>

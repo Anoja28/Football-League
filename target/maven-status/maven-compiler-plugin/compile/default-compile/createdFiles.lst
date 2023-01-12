@@ -1,0 +1,11 @@
+com\frauas\HomeController.class
+com\frauas\MatchesController.class
+com\frauas\CreateController$1.class
+com\frauas\App.class
+com\frauas\models\Player.class
+com\frauas\database\DatabaseAPI.class
+com\frauas\PrimaryController.class
+com\frauas\models\Team.class
+com\frauas\models\Position.class
+com\frauas\BaseController.class
+com\frauas\CreateController.class

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox styleClass="container-content" fx:id="createRoot" prefWidth="${createRoot.parent.width}"
+    xmlns="http://javafx.com/javafx/8.0.171" HBox.hgrow="always" VBox.vgrow="always"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frauas.CreateController" spacing="20">
+    <Label text="CREATE A PLAYER" styleClass="section-header" />
+    <HBox spacing="20">
+        <VBox>
+            <Label text="First Name" />
+            <TextField fx:id="fnameTF" promptText="Enter first name..." styleClass="tfield" />
+        </VBox>
+        <VBox>
+            <Label text="Last Name" />
+            <TextField fx:id="lnameTF" promptText="Enter last name..." styleClass="tfield" />
+        </VBox>
+    </HBox>
+    <HBox spacing="20">
+        <VBox>
+            <Label text="Team" />
+            <ComboBox fx:id="teamCB" styleClass="cbox" />
+        </VBox>
+        <VBox>
+            <Label text="Number" />
+            <ComboBox fx:id="numCB" styleClass="cbox" />
+        </VBox>
+        <VBox>
+            <Label text="Position" />
+            <ComboBox fx:id="posCB" styleClass="cbox" />
+        </VBox>
+    </HBox>
+    <HBox spacing="20">
+        <VBox>
+            <Label text="Nationality" />
+            <ComboBox fx:id="nationCB" styleClass="cbox" />
+        </VBox>
+        <VBox>
+            <Label text="Height (CM)" />
+            <ComboBox fx:id="heightCB" styleClass="cbox" />
+        </VBox>
+        <VBox>
+            <Label text="Weight (KG)" />
+            <ComboBox fx:id="weightCB" styleClass="cbox" />
+        </VBox>
+    </HBox>
+    <HBox spacing="20">
+        <VBox>
+            <Label text="Date of Birth (DD/MM/YY)" />
+            <HBox spacing="20">
+                <ComboBox fx:id="dobDayCB" styleClass="cbox" />
+                <ComboBox fx:id="dobMonthCB" styleClass="cbox" />
+                <ComboBox fx:id="dobYearCB" styleClass="cbox" />
+            </HBox>
+        </VBox>
+    </HBox>
+    <Region prefHeight="20" />
+    <Button text="Create" styleClass="conf-btn" fx:id="createBtn" onAction="#createPlayer" />
+    <Label fx:id="msg" />
+</VBox>

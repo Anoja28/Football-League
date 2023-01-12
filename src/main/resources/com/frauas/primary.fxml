@@ -10,12 +10,13 @@
 
 <VBox spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171"
    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frauas.PrimaryController"
-   style="-fx-background-color: #e4e2f1">
-   <Label text="PROGEX FRA UAS WS23 PROJECT" />
-   <Button fx:id="primaryButton" text="Sign In" onAction="#switchToSecondary"
-      styleClass="btn" />
-   <VBox HBox.hgrow="always" VBox.vgrow="always" alignment="center">
-      <Text text="${'FOOTBALL\nLEAGUE\nDATABASE'}" style="-fx-font: 48 arial" />
+   styleClass="gradient">
+   <Label text="${'PROGEX FRA UAS\nWS23 PROJECT'}" textFill="white" />
+   <VBox HBox.hgrow="always" VBox.vgrow="always" alignment="center" spacing="20">
+      <Label text="${'FOOTBALL\nLEAGUE\nDATABASE'}"
+         style="-fx-font-size: 28; -fx-font-weight: 700; -fx-text-fill: white;" />
+      <Button fx:id="primaryButton" text="Sign In" onAction="#switchToSecondary"
+         styleClass="btn" />
    </VBox>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

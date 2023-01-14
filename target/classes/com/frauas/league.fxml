@@ -15,6 +15,6 @@
     xmlns:fx="http://javafx.com/fxml/1" spacing="20">
     <Label text="BUNDESLIGA MATCHES" styleClass="section-header" />
     <HBox fx:id="dateSelect" spacing="10" />
-    <Region prefHeight="20" />
+    <Region prefHeight="10" />
     <VBox fx:id="matchesContainer" spacing="4" />
 </VBox>

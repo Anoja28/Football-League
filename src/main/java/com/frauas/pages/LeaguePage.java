@@ -64,9 +64,19 @@ public class LeaguePage extends VBox {
                 Arrays.asList(
                         new Match(Team.B04, Team.BVB, 18, "BayArena")));
 
+        boolean selectedFirst = false;
         for (LocalDate date : season.keySet()) {
             Label dateL = new Label(date.getDayOfWeek().name().substring(0, 3) + ", " + date.getDayOfMonth());
-            dateL.getStyleClass().add("date-select-btn");
+            if (selectedFirst) {
+                dateL.getStyleClass().add("date-select-btn");
+            } else {
+                dateL.getStyleClass().add("date-select-btn-selected");
+                for (Match match : season.get(date)) {
+                    match.date = date;
+                    matchesContainer.getChildren().add(new MatchCard(match));
+                }
+                selectedFirst = true;
+            }
 
             dateL.setOnMouseClicked(action -> {
                 if (dateL.getStyleClass().contains("date-select-btn-selected")) {

@@ -57,7 +57,7 @@
     </HBox>
     <Region prefHeight="20" />
     <HBox fx:id="btnContainer" spacing="10">
-        <Button styleClass="conf-btn" fx:id="createBtn" onAction="#playerPageAction" />
+        <Button styleClass="conf-btn" fx:id="confBtn" onAction="#playerPageAction" />
     </HBox>
     <Label fx:id="msg" />
 </VBox>

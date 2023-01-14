@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.Locale;
 
+import org.bson.types.ObjectId;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.HBox;
@@ -59,7 +61,8 @@ public class PlayerEntryPage extends VBox {
     Label msg;
 
     @FXML
-    Button createBtn;
+    Button confBtn;
+    Button delBtn;
 
     @FXML
     HBox btnContainer;
@@ -103,7 +106,7 @@ public class PlayerEntryPage extends VBox {
         }
 
         if (playerToEdit == null) {
-            createBtn.setText("Create");
+            confBtn.setText("Create");
             playerPageHeader.setText("CREATE A NEW PLAYER");
 
             teamCB.getSelectionModel().selectFirst();
@@ -117,7 +120,7 @@ public class PlayerEntryPage extends VBox {
             nationCB.getSelectionModel().select("DE");
             dobYearCB.getSelectionModel().selectLast();
         } else {
-            createBtn.setText("Update");
+            confBtn.setText("Update");
             playerPageHeader.setText(
                     "EDIT " + playerToEdit.firstName.toUpperCase() + " " + playerToEdit.lastName.toUpperCase());
 
@@ -132,9 +135,9 @@ public class PlayerEntryPage extends VBox {
             dobMonthCB.getSelectionModel().select(playerToEdit.birthDate.getMonthValue());
             dobYearCB.getSelectionModel().selectFirst();
 
-            Button delBtn = new Button("Delete");
+            delBtn = new Button("Delete");
             delBtn.getStyleClass().add("cancl-btn");
-            delBtn.setOnAction(action -> deletePlayer());
+            delBtn.setOnAction(action -> deletePlayer(playerToEdit.id));
 
             btnContainer.getChildren().add(delBtn);
         }
@@ -142,15 +145,15 @@ public class PlayerEntryPage extends VBox {
         YearMonth y = YearMonth.of(dobYearCB.getValue(), dobMonthCB.getValue());
         lom = y.lengthOfMonth();
 
-        createBtn.setDisable(true);
+        confBtn.setDisable(true);
 
         ChangeListener<String> c = new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> arg0, String arg1, String arg2) {
                 if (fnameTF.textProperty().getValue().isBlank() || lnameTF.textProperty().getValue().isBlank()) {
-                    createBtn.setDisable(true);
+                    confBtn.setDisable(true);
                 } else {
-                    createBtn.setDisable(false);
+                    confBtn.setDisable(false);
                 }
             }
         };
@@ -171,7 +174,7 @@ public class PlayerEntryPage extends VBox {
                 nationCB.getValue());
 
         if (DatabaseAPI.createPlayer(player)) {
-            createBtn.setDisable(true);
+            confBtn.setDisable(true);
             msg.setStyle("-fx-text-fill: #50b977");
             msg.setText("Created new Player " + player.firstName + " " + player.lastName);
         } else {
@@ -181,8 +184,19 @@ public class PlayerEntryPage extends VBox {
     }
 
     private void editPlayer() {
-        if (DatabaseAPI.editPlayer(playerToEdit)) {
-            createBtn.setDisable(true);
+        Player player = new Player(
+                playerToEdit.id,
+                fnameTF.getText(),
+                lnameTF.getText(),
+                teamCB.getValue(),
+                numCB.getValue(),
+                posCB.getValue(),
+                LocalDate.of(dobYearCB.getValue(), dobMonthCB.getValue(), dobDayCB.getValue()),
+                nationCB.getValue());
+
+        if (DatabaseAPI.editPlayer(player)) {
+            confBtn.setDisable(true);
+            delBtn.setDisable(true);
             msg.setStyle("-fx-text-fill: #50b977");
             msg.setText("Updated Player " + playerToEdit.firstName + " " + playerToEdit.lastName);
         } else {
@@ -191,8 +205,16 @@ public class PlayerEntryPage extends VBox {
         }
     }
 
-    private void deletePlayer() {
-
+    private void deletePlayer(ObjectId id) {
+        if (DatabaseAPI.deletePlayer(id)) {
+            confBtn.setDisable(true);
+            delBtn.setDisable(true);
+            msg.setStyle("-fx-text-fill: #50b977");
+            msg.setText("Deleted Player " + playerToEdit.firstName + " " + playerToEdit.lastName);
+        } else {
+            msg.setText("Delete failed for " + playerToEdit.firstName + " " + playerToEdit.lastName);
+            msg.setStyle("-fx-text-fill: red");
+        }
     }
 
     @FXML

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.bson.Document;
+import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
 import com.frauas.models.Player;
@@ -24,7 +25,9 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.InsertOneResult;
+import com.mongodb.client.result.UpdateResult;
 
 public class DatabaseAPI {
     public static MongoDatabase database;
@@ -52,7 +55,7 @@ public class DatabaseAPI {
             while (cursor.hasNext()) {
                 Document doc = cursor.next();
                 players.add(new Player(
-                        doc.getObjectId(doc),
+                        (ObjectId) doc.get("_id"),
                         doc.getString("firstName"),
                         doc.getString("lastName"),
                         Team.valueOf(doc.getString("team")),
@@ -104,7 +107,8 @@ public class DatabaseAPI {
                     .append("position", player.position.name())
                     .append("birthDate", player.birthDate)
                     .append("nationality", player.nationality));
-            System.out.println("Success! Inserted document id: " + result.getInsertedId());
+            System.out.println("Inserted document id: " + result.getInsertedId());
+            player.id = result.getInsertedId().asObjectId().getValue();
             return true;
         } catch (MongoException me) {
             System.err.println("Unable to insert due to an error: " + me);
@@ -117,7 +121,7 @@ public class DatabaseAPI {
 
         MongoCollection<Document> collection = database.getCollection("players");
         try {
-            Document result = collection.findOneAndUpdate(
+            UpdateResult result = collection.updateOne(
                     Filters.eq("_id", player.id),
                     Updates.combine(
                             Updates.set("firstName", player.firstName),
@@ -127,10 +131,28 @@ public class DatabaseAPI {
                             Updates.set("position", player.position.name()),
                             Updates.set("birthDate", player.birthDate),
                             Updates.set("nationality", player.nationality)));
-            System.out.println("Upserted id: " + result.get("_id"));
+
+            System.out.println("Modified document count: " + result.getModifiedCount());
             return true;
         } catch (MongoException me) {
             System.err.println("Unable to update due to an error: " + me);
+            return false;
+        }
+    }
+
+    public static boolean deletePlayer(ObjectId id) {
+        connect();
+
+        MongoCollection<Document> collection = database.getCollection("players");
+
+        Bson query = Filters.eq("_id", id);
+        System.out.println(id);
+        try {
+            DeleteResult result = collection.deleteOne(query);
+            System.out.println("Deleted document count: " + result.getDeletedCount());
+            return true;
+        } catch (MongoException me) {
+            System.err.println("Unable to delete due to an error: " + me);
             return false;
         }
     }

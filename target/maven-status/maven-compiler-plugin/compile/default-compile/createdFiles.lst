@@ -6,6 +6,7 @@ com\frauas\models\Player.class
 com\frauas\database\DatabaseAPI.class
 com\frauas\PlayersController.class
 com\frauas\models\Match.class
+com\frauas\models\User.class
 com\frauas\pages\TeamPage.class
 com\frauas\PrimaryController.class
 com\frauas\models\Team.class

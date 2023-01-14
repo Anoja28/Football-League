@@ -6,9 +6,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.frauas.models.Team;
+import com.frauas.models.User;
 import com.frauas.pages.TeamPage;
 import com.frauas.components.MatchCard;
-import com.frauas.components.PlayerTable;
 import com.frauas.models.Match;
 import com.frauas.models.Player;
 
@@ -29,9 +29,14 @@ public class HomeController {
     @FXML
     VBox upcomingSection;
 
+    @FXML
+    Label welcomeLabel;
+
     public void initialize() {
-        Match um = new Match(Team.RBL, Team.FCB, 16, "Red Bull Arena");
-        um.date = LocalDate.of(2023, 1, 20);
+        welcomeLabel.setText("Welcome, " + User.getInstance().getUsername());
+
+        Match um = new Match(Team.RBL, Team.FCB, 18, "Red Bull Arena");
+        um.date = LocalDate.of(2023, 1, 27);
         VBox upcomingMatch = new MatchCard(um);
         upcomingSection.getChildren().add(upcomingMatch);
 
@@ -46,7 +51,6 @@ public class HomeController {
         players.add(new Player("Randal", "Kolo Muani", 12));
 
         clubsSection();
-        tableContainer.getChildren().add(new PlayerTable(players));
     }
 
     private void clubsSection() {

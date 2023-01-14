@@ -1,7 +1,11 @@
 package com.frauas;
 
 import java.io.IOException;
+
+import com.frauas.models.User;
+
 import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 
 public class PrimaryController {
@@ -10,10 +14,13 @@ public class PrimaryController {
     VBox test;
 
     @FXML
-    private void switchToSecondary() throws IOException {
-        App.setRoot("base");
-    }
+    TextField usernameTF;
 
-    public void initialize() {
+    @FXML
+    private void switchToSecondary() throws IOException {
+        String name = usernameTF.getText();
+        User.getInstance().setUsername(name);
+
+        App.setRoot("base");
     }
 }

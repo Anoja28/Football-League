@@ -11,14 +11,13 @@
 <VBox styleClass="container-content" fx:id="homeRoot" prefWidth="${homeRoot.parent.width}"
     xmlns="http://javafx.com/javafx/8.0.171"
     xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frauas.HomeController">
-    <Label text="Welcome, Hatice" style="-fx-font-size: 28" />
+    <Label fx:id="welcomeLabel" style="-fx-font-size: 28" />
     <Label text="UPCOMING MATCH" styleClass="section-header" />
-    <Label text="16th Match Day"
+    <Label text="Matchday 18"
         style="-fx-padding: 0 0 20 0; -fx-font-size: 16;" />
     <VBox fx:id="upcomingSection" HBox.hgrow="always" alignment="center" />
     <Label text="TEAMS" styleClass="section-header" />
     <TilePane fx:id="clubsDisplay" hgap="4" vgap="4"
         styleClass="container-clubs" />
-    <Label text="TOP PLAYERS" styleClass="section-header" />
     <VBox fx:id="tableContainer" HBox.hgrow="always" />
 </VBox>

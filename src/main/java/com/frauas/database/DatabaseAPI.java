@@ -1,5 +1,7 @@
 package com.frauas.database;
 
+import java.time.Instant;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +21,9 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.model.Filters;
 import com.mongodb.client.model.Sorts;
+import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.InsertOneResult;
 
 public class DatabaseAPI {
@@ -41,25 +45,49 @@ public class DatabaseAPI {
         database = mongoClient.getDatabase("football-league");
     }
 
-    public static List<Player> getPlayers() {
-        connect();
+    private static List<Player> getPlayers(MongoCursor<Document> cursor) {
         List<Player> players = new ArrayList<>();
-        MongoCollection<Document> collection = database.getCollection("players");
 
-        MongoCursor<Document> cursor = collection.find()
-                .sort(Sorts.descending("firstName")).iterator();
         try {
             while (cursor.hasNext()) {
                 Document doc = cursor.next();
-                players.add(new Player(doc.getString("firstName"), doc.getString("lastName"),
-                        Team.valueOf(doc.getString("team")), doc.getInteger("number"),
-                        Position.valueOf(doc.getString("position"))));
+                players.add(new Player(
+                        doc.getObjectId(doc),
+                        doc.getString("firstName"),
+                        doc.getString("lastName"),
+                        Team.valueOf(doc.getString("team")),
+                        doc.getInteger("number"),
+                        Position.valueOf(doc.getString("position")),
+                        Instant.ofEpochMilli(doc.getDate("birthDate").getTime()).atZone(ZoneId.systemDefault())
+                                .toLocalDate(),
+                        doc.getString("nationality")));
             }
         } finally {
             cursor.close();
         }
 
         return players;
+    }
+
+    public static List<Player> getPlayers() {
+        connect();
+        MongoCollection<Document> collection = database.getCollection("players");
+
+        MongoCursor<Document> cursor = collection.find()
+                .sort(Sorts.descending("firstName")).iterator();
+
+        return getPlayers(cursor);
+    }
+
+    public static List<Player> getPlayers(Team team) {
+        connect();
+        MongoCollection<Document> collection = database.getCollection("players");
+
+        MongoCursor<Document> cursor = collection.find()
+                .filter(Filters.eq("team", team.name()))
+                .sort(Sorts.descending("firstName")).iterator();
+
+        return getPlayers(cursor);
     }
 
     public static boolean createPlayer(Player player) {
@@ -80,6 +108,29 @@ public class DatabaseAPI {
             return true;
         } catch (MongoException me) {
             System.err.println("Unable to insert due to an error: " + me);
+            return false;
+        }
+    }
+
+    public static boolean editPlayer(Player player) {
+        connect();
+
+        MongoCollection<Document> collection = database.getCollection("players");
+        try {
+            Document result = collection.findOneAndUpdate(
+                    Filters.eq("_id", player.id),
+                    Updates.combine(
+                            Updates.set("firstName", player.firstName),
+                            Updates.set("lastName", player.lastName),
+                            Updates.set("team", player.team.name()),
+                            Updates.set("number", player.number),
+                            Updates.set("position", player.position.name()),
+                            Updates.set("birthDate", player.birthDate),
+                            Updates.set("nationality", player.nationality)));
+            System.out.println("Upserted id: " + result.get("_id"));
+            return true;
+        } catch (MongoException me) {
+            System.err.println("Unable to update due to an error: " + me);
             return false;
         }
     }

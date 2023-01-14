@@ -1,19 +1,21 @@
 package com.frauas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import com.frauas.models.Team;
+import com.frauas.pages.TeamPage;
+import com.frauas.components.MatchCard;
+import com.frauas.components.PlayerTable;
+import com.frauas.models.Match;
 import com.frauas.models.Player;
-import com.frauas.models.Position;
 
 import javafx.beans.value.ChangeListener;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 
@@ -28,11 +30,23 @@ public class HomeController {
     VBox upcomingSection;
 
     public void initialize() {
-        VBox upcomingMatch = MatchesController.matchComponent(Team.RBL, Team.FCB);
+        Match um = new Match(Team.RBL, Team.FCB, 16, "Red Bull Arena");
+        um.date = LocalDate.of(2023, 1, 20);
+        VBox upcomingMatch = new MatchCard(um);
         upcomingSection.getChildren().add(upcomingMatch);
 
+        List<Player> players = new ArrayList<>();
+        players.add(new Player("Kevin", "Trapp", 5));
+        players.add(new Player("Evan", "Ndicka", 7));
+        players.add(new Player("Kristijan", "Jakić", 8));
+        players.add(new Player("Randal", "Kolo Muani", 1));
+        players.add(new Player("Kevin", "Trap", 2));
+        players.add(new Player("Evan", "Ndicka", 3));
+        players.add(new Player("Kristijan", "Jakić", 16));
+        players.add(new Player("Randal", "Kolo Muani", 12));
+
         clubsSection();
-        tableSection();
+        tableContainer.getChildren().add(new PlayerTable(players));
     }
 
     private void clubsSection() {
@@ -57,57 +71,10 @@ public class HomeController {
                     clubCard.setStyle("-fx-font-weight: 700; -fx-font-size: 18;");
                 }
             });
-        }
-    }
 
-    private void tableSection() {
-        List<Player> players = new ArrayList<>();
-        players.add(new Player("Kevin", "Trapp", Team.SGE, 1, Position.GOAL));
-        players.add(new Player("Evan", "Ndicka", Team.SGE, 2, Position.DEF));
-        players.add(new Player("Kristijan", "Jakić", Team.SGE, 6, Position.MID));
-        players.add(new Player("Randal", "Kolo Muani", Team.SGE, 9, Position.ATK));
-        players.add(new Player("Kevin", "Trap", Team.SGE, 1, Position.GOAL));
-        players.add(new Player("Evan", "Ndicka", Team.SGE, 2, Position.DEF));
-        players.add(new Player("Kristijan", "Jakić", Team.SGE, 6, Position.MID));
-        players.add(new Player("Randal", "Kolo Muani", Team.SGE, 9, Position.ATK));
-
-        List<String> tableHeaderCells = Arrays.asList("first name", "last name", "club", "number", "position", "age");
-        HBox tableHeader = new HBox();
-        tableHeader.setStyle("-fx-background-color: rgb(239, 239, 239)");
-        for (String tableHeaderName : tableHeaderCells) {
-            tableHeader.getChildren().add(new Label(tableHeaderName));
-        }
-
-        for (Node cell : tableHeader.getChildren()) {
-            if (cell instanceof Label) {
-                ((Label) cell).setPrefHeight(30);
-                ((Label) cell).setPrefWidth(150);
-                ((Label) cell).setAlignment(Pos.CENTER);
-            }
-        }
-
-        tableContainer.getChildren().add(tableHeader);
-
-        for (Player player : players) {
-            HBox row = new HBox();
-            row.getStyleClass().add("table-row");
-
-            row.getChildren().add(new Label(player.firstName));
-            row.getChildren().add(new Label(player.lastName));
-            row.getChildren().add(new Label(player.team.name()));
-            row.getChildren().add(new Label(Integer.toString(player.number)));
-            row.getChildren().add(new Label(player.position.name()));
-            row.getChildren().add(new Label(Integer.toString(player.getAge())));
-
-            for (Node cell : row.getChildren()) {
-                if (cell instanceof Label) {
-                    ((Label) cell).setPrefHeight(30);
-                    ((Label) cell).setPrefWidth(150);
-                    ((Label) cell).setAlignment(Pos.CENTER);
-                }
-            }
-
-            tableContainer.getChildren().add(row);
+            clubCard.setOnMouseClicked(action -> {
+                BaseController.navigateTo(new TeamPage(club));
+            });
         }
     }
 }

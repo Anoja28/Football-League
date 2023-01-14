@@ -4,7 +4,9 @@
     -fx-lilac-1: #aba2f9;
     -fx-lilac-2: #9b93e9;
     -fx-gray-1: #f0f0f0;
-    -fx-gray-2: #f5f5f5
+    -fx-gray-2: #f5f5f5;
+    -fx-red-1: #ed1c48;
+    -fx-red-2: #cb193f;
 }
 
 .btn {
@@ -24,8 +26,25 @@
     -fx-text-fill: white;
 }
 
+.conf-btn:hover {
+    -fx-background-color: -fx-green-2;
+}
+
+.btn:disabled,
+.cancl-btn:disabled,
 .conf-btn:disabled {
     -fx-background-color: #b3b3b3;
+}
+
+.cancl-btn {
+    -fx-background-color: -fx-red-1;
+    -fx-cursor: hand;
+    -fx-padding: 10 80 10 80;
+    -fx-text-fill: white;
+}
+
+.cancl-btn:hover {
+    -fx-background-color: -fx-red-2;
 }
 
 .selected-menu-btn {
@@ -34,10 +53,6 @@
 
 .selected-menu-btn:hover {
     -fx-background-color: -fx-lilac-2;
-}
-
-.conf-btn:hover {
-    -fx-background-color: -fx-green-2;
 }
 
 .container-menu {
@@ -86,7 +101,7 @@
 
 .match-card {
     -fx-padding: 4 100 4 100;
-    -fx-background-radius: 10;
+    -fx-background-color: -fx-gray-2;
 }
 
 .gradient {
@@ -116,4 +131,23 @@
 .cbox:hover,
 .tfield:hover {
     -fx-background-color: -fx-gray-1;
+}
+
+.date-select-btn {
+    -fx-padding: 8 14 8 14;
+    -fx-background-color: -fx-gray-2;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+}
+
+.date-select-btn:hover {
+    -fx-background-color: -fx-gray-1;
+}
+
+.date-select-btn-selected {
+    -fx-padding: 8 14 8 14;
+    -fx-background-radius: 20;
+    -fx-cursor: hand;
+    -fx-background-color: black;
+    -fx-text-fill: white;
 }

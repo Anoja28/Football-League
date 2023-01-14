@@ -10,8 +10,12 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox styleClass="container-content" fx:id="createRoot" prefWidth="${createRoot.parent.width}"
+<VBox fx:id="teamRoot" prefWidth="${teamRoot.parent.width}"
     xmlns="http://javafx.com/javafx/8.0.171" VBox.vgrow="always"
-    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frauas.MatchesController" spacing="20">
-    <Label text="BUNDESLIGA MATCHES" styleClass="section-header" />
+    xmlns:fx="http://javafx.com/fxml/1" spacing="0">
+    <HBox alignment="baseline_left" fx:id="teamPageHeader">
+        <Label prefWidth="140" alignment="center" fx:id="logoContainer" />
+        <Label styleClass="section-header" fx:id="teamName" />
+    </HBox>
+    <VBox fx:id="content" style="-fx-padding: 30; -fx-background-color: white;" HBox.hgrow="always" />
 </VBox>

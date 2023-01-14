@@ -12,8 +12,9 @@
 
 <VBox styleClass="container-content" fx:id="createRoot" prefWidth="${createRoot.parent.width}"
     xmlns="http://javafx.com/javafx/8.0.171" HBox.hgrow="always" VBox.vgrow="always"
-    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frauas.CreateController" spacing="20">
-    <Label text="CREATE A PLAYER" styleClass="section-header" />
+    xmlns:fx="http://javafx.com/fxml/1"
+    spacing="20">
+    <Label styleClass="section-header" fx:id="playerPageHeader" />
     <HBox spacing="20">
         <VBox>
             <Label text="First Name" />
@@ -43,14 +44,6 @@
             <Label text="Nationality" />
             <ComboBox fx:id="nationCB" styleClass="cbox" />
         </VBox>
-        <VBox>
-            <Label text="Height (CM)" />
-            <ComboBox fx:id="heightCB" styleClass="cbox" />
-        </VBox>
-        <VBox>
-            <Label text="Weight (KG)" />
-            <ComboBox fx:id="weightCB" styleClass="cbox" />
-        </VBox>
     </HBox>
     <HBox spacing="20">
         <VBox>
@@ -63,6 +56,8 @@
         </VBox>
     </HBox>
     <Region prefHeight="20" />
-    <Button text="Create" styleClass="conf-btn" fx:id="createBtn" onAction="#createPlayer" />
+    <HBox fx:id="btnContainer" spacing="10">
+        <Button styleClass="conf-btn" fx:id="createBtn" onAction="#playerPageAction" />
+    </HBox>
     <Label fx:id="msg" />
 </VBox>

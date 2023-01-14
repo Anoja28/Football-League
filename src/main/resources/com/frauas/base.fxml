@@ -23,7 +23,7 @@
                     <Button fx:id="tabHome" text="Home Dashboard" styleClass="menu-tab"
                         prefWidth="${menuContainer.width}" onAction="#gotoHome"
                         alignment="center_left" />
-                    <Button fx:id="tabMatches" text="Matches Overview" styleClass="menu-tab"
+                    <Button fx:id="tabMatches" text="League Overview" styleClass="menu-tab"
                         prefWidth="${menuContainer.width}" onAction="#gotoMatches"
                         alignment="center_left" />
                     <Button fx:id="tabPlayers" text="Players Table" styleClass="menu-tab"

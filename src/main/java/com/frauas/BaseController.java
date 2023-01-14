@@ -2,6 +2,9 @@ package com.frauas;
 
 import java.io.IOException;
 
+import com.frauas.pages.LeaguePage;
+import com.frauas.pages.PlayerEntryPage;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
@@ -29,6 +32,8 @@ public class BaseController {
     @FXML
     Button tabCreate;
 
+    public static ScrollPane root;
+
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
@@ -36,26 +41,30 @@ public class BaseController {
 
     @FXML
     private void gotoHome() throws IOException {
-        scrollPane.setContent(App.loadFXML("home"));
+        navigateTo(App.loadFXML("home"));
         selectTab(tabHome);
     }
 
     @FXML
     private void gotoPlayers() throws IOException {
-        scrollPane.setContent(App.loadFXML("players"));
+        navigateTo(App.loadFXML("players"));
         selectTab(tabPlayers);
     }
 
     @FXML
     private void gotoCreate() throws IOException {
-        scrollPane.setContent(App.loadFXML("create"));
+        navigateTo(new PlayerEntryPage(null));
         selectTab(tabCreate);
     }
 
     @FXML
     private void gotoMatches() throws IOException {
-        scrollPane.setContent(App.loadFXML("matches"));
+        navigateTo(new LeaguePage());
         selectTab(tabMatches);
+    }
+
+    public static void navigateTo(Node node) {
+        root.setContent(node);
     }
 
     private void selectTab(Button btn) {
@@ -69,6 +78,7 @@ public class BaseController {
     }
 
     public void initialize() throws IOException {
+        root = scrollPane;
         scrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
         scrollPane.setContent(App.loadFXML("home"));
 

@@ -1,8 +1,7 @@
-package com.frauas;
+package com.frauas.components;
 
-import com.frauas.models.Team;
+import com.frauas.models.Match;
 
-import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -11,43 +10,43 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-public class MatchesController {
-    @FXML
-    VBox createRoot;
+public class MatchCard extends VBox {
+    private Match match;
 
-    public void initialize() {
-        for (int i = 0; i < 8; i++) {
-            createRoot.getChildren().add(matchComponent(Team.getRandomTeam(), Team.getRandomTeam()));
-        }
+    public MatchCard(Match match) {
+        this.match = match;
+
+        initialize();
     }
 
-    public static VBox matchComponent(Team left, Team right) {
-        VBox container = new VBox();
+    int lgHeight = 60;
+    int lgWidth = 160;
+
+    private void initialize() {
         HBox hero = new HBox();
         hero.setAlignment(Pos.CENTER);
-        container.getStyleClass().add("match-card");
-        container.getStyleClass().add("gray");
+        getStyleClass().add("match-card");
 
-        Label leftL = new Label(left.toString());
-        Label rightL = new Label(right.toString());
+        Label leftL = new Label(match.a.toString());
+        Label rightL = new Label(match.b.toString());
         Label timeL = new Label("20:30");
         leftL.setPrefWidth(100);
         rightL.setPrefWidth(100);
 
-        ImageView leftImg = new ImageView(new Image(left.logo));
-        ImageView rightImg = new ImageView(new Image(right.logo));
+        ImageView leftImg = new ImageView(new Image(match.a.logo));
+        ImageView rightImg = new ImageView(new Image(match.b.logo));
 
         Label leftImgL = new Label();
-        leftImg.setFitHeight(80);
+        leftImg.setFitHeight(lgHeight);
         leftImg.setPreserveRatio(true);
-        leftImgL.setPrefWidth(200);
+        leftImgL.setPrefWidth(lgWidth);
         leftImgL.setGraphic(leftImg);
         leftImgL.setAlignment(Pos.CENTER);
 
         Label rightImgL = new Label();
-        rightImg.setFitHeight(80);
+        rightImg.setFitHeight(lgHeight);
         rightImg.setPreserveRatio(true);
-        rightImgL.setPrefWidth(200);
+        rightImgL.setPrefWidth(lgWidth);
         rightImgL.setGraphic(rightImg);
         rightImgL.setAlignment(Pos.CENTER);
 
@@ -59,7 +58,7 @@ public class MatchesController {
 
         for (Node n : hero.getChildren()) {
             if (n instanceof Label) {
-                ((Label) n).setStyle("-fx-font-size: 18; -fx-font-weight: 600; -fx-text-fill: black; -fx-padding: 8");
+                ((Label) n).setStyle("-fx-font-size: 14; -fx-font-weight: 600; -fx-text-fill: black; -fx-padding: 8");
                 ((Label) n).setWrapText(true);
             } else {
                 n.setStyle("-fx-padding: 4");
@@ -69,14 +68,17 @@ public class MatchesController {
         timeL.setStyle("-fx-font-size: 12; -fx-font-weight: 200; -fx-padding: 2 8 2 8; -fx-text-fill: black;");
 
         HBox info = new HBox();
-        Label stdL = new Label("Red Bull Arena · FR 20th Jan · FCB favored");
+        Label stdL = new Label(
+                match.stadium + " · "
+                        + match.date.getDayOfWeek().name().substring(0, 3) + " "
+                        + match.date.getDayOfMonth() + " "
+                        + match.date.getMonth().name().substring(0, 3) + " · Matchday "
+                        + match.matchday);
         stdL.setStyle("-fx-font-size: 12; -fx-font-weight: 200; -fx-padding: 2 8 2 8; -fx-text-fill: black;");
         info.getChildren().add(stdL);
         info.setAlignment(Pos.CENTER);
 
-        container.getChildren().add(hero);
-        container.getChildren().add(info);
-
-        return container;
+        getChildren().add(hero);
+        getChildren().add(info);
     }
 }

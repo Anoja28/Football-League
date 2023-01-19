@@ -93,15 +93,15 @@ public class PlayerEntryPage extends VBox {
             numCB.getItems().add(i);
         }
 
-        for (int i = 1; i < lom; i++) {
+        for (int i = 1; i <= lom; i++) {
             dobDayCB.getItems().add(i);
         }
 
-        for (int i = 1; i < 12; i++) {
+        for (int i = 1; i <= 12; i++) {
             dobMonthCB.getItems().add(i);
         }
 
-        for (int i = 1980; i < 2005; i++) {
+        for (int i = 1980; i <= 2005; i++) {
             dobYearCB.getItems().add(i);
         }
 

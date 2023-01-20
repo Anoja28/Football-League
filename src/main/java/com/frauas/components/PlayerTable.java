@@ -25,7 +25,8 @@ public class PlayerTable extends VBox {
     }
 
     public void initialize() {
-        List<String> tableHeaderCells = Arrays.asList("first name", "last name", "team", "number", "position", "age");
+        List<String> tableHeaderCells = Arrays.asList("First Name", "Last Name", "Team", "Number", "Position", "Age",
+                "Nationality");
         HBox tableHeader = new HBox();
         tableHeader.setStyle("-fx-background-color: rgb(239, 239, 239)");
         for (String tableHeaderName : tableHeaderCells) {
@@ -43,27 +44,31 @@ public class PlayerTable extends VBox {
                     getChildren().clear();
 
                     switch (((Label) cell).getText()) {
-                        case "first name":
+                        case "First Name":
                             players.sort(Comparator.comparing(Player::getFirstName));
                             break;
 
-                        case "last name":
+                        case "Last Name":
                             players.sort(Comparator.comparing(Player::getLastName));
                             break;
 
-                        case "team":
+                        case "Team":
                             players.sort(Comparator.comparing(Player::getTeam));
                             break;
 
-                        case "number":
+                        case "Number":
                             players.sort(Comparator.comparing(Player::getNumber));
                             break;
 
-                        case "position":
+                        case "Position":
                             players.sort(Comparator.comparing(Player::getPosition));
                             break;
 
-                        case "age":
+                        case "Age":
+                            players.sort(Comparator.comparing(Player::getAge));
+                            break;
+
+                        case "Nationality":
                             players.sort(Comparator.comparing(Player::getAge));
                             break;
 
@@ -88,6 +93,7 @@ public class PlayerTable extends VBox {
             row.getChildren().add(new Label(Integer.toString(player.number)));
             row.getChildren().add(new Label(player.position.name()));
             row.getChildren().add(new Label(Integer.toString(player.getAge())));
+            row.getChildren().add(new Label(player.nationality));
 
             for (Node cell : row.getChildren()) {
                 if (cell instanceof Label) {

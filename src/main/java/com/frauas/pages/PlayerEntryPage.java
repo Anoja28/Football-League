@@ -93,19 +93,20 @@ public class PlayerEntryPage extends VBox {
             numCB.getItems().add(i);
         }
 
-        for (int i = 1; i < lom; i++) {
+        for (int i = 1; i <= lom; i++) {
             dobDayCB.getItems().add(i);
         }
 
-        for (int i = 1; i < 12; i++) {
+        for (int i = 1; i <= 12; i++) {
             dobMonthCB.getItems().add(i);
         }
 
-        for (int i = 1980; i < 2005; i++) {
+        for (int i = 1980; i <= 2005; i++) {
             dobYearCB.getItems().add(i);
         }
 
         if (playerToEdit == null) {
+            confBtn.setDisable(true);
             confBtn.setText("Create");
             playerPageHeader.setText("CREATE A NEW PLAYER");
 
@@ -128,12 +129,12 @@ public class PlayerEntryPage extends VBox {
             lnameTF.setText(playerToEdit.lastName);
 
             teamCB.getSelectionModel().select(playerToEdit.team);
-            numCB.getSelectionModel().select(playerToEdit.number);
+            numCB.getSelectionModel().select(Integer.valueOf(playerToEdit.number));
             posCB.getSelectionModel().select(playerToEdit.position);
             nationCB.getSelectionModel().select(playerToEdit.nationality);
-            dobDayCB.getSelectionModel().select(playerToEdit.birthDate.getDayOfMonth());
-            dobMonthCB.getSelectionModel().select(playerToEdit.birthDate.getMonthValue());
-            dobYearCB.getSelectionModel().selectFirst();
+            dobDayCB.getSelectionModel().select(Integer.valueOf(playerToEdit.birthDate.getDayOfMonth()));
+            dobMonthCB.getSelectionModel().select(Integer.valueOf(playerToEdit.birthDate.getMonthValue()));
+            dobYearCB.getSelectionModel().select(Integer.valueOf(playerToEdit.birthDate.getYear()));
 
             delBtn = new Button("Delete");
             delBtn.getStyleClass().add("cancl-btn");
@@ -144,8 +145,6 @@ public class PlayerEntryPage extends VBox {
 
         YearMonth y = YearMonth.of(dobYearCB.getValue(), dobMonthCB.getValue());
         lom = y.lengthOfMonth();
-
-        confBtn.setDisable(true);
 
         ChangeListener<String> c = new ChangeListener<String>() {
             @Override

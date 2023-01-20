@@ -6,9 +6,9 @@ public enum Team {
     FCB("FC Bayern", "#dc052d", 15, 10, 4, 1, 49, 13, 36, 26),
     RBL("RB Leipzig", "#ffffff", 15, 10, 4, 1, 49, 13, 36, 26),
     BVB("Borussia Dortmund", "#ffd900", 15, 10, 4, 1, 49, 13, 36, 26),
-    WOB("VfL Wolfsburg", "#64b42d", 15, 10, 4, 1, 49, 13, 36, 26),
+    WOB("VfL Wolfsburg", "#509024", 15, 10, 4, 1, 49, 13, 36, 26),
     SGE("Eintracht Frankfurt", "#000000", 15, 10, 4, 1, 49, 13, 36, 26),
-    B04("Bayer Leverkusen", "#ff0000", 15, 10, 4, 1, 49, 13, 36, 26),
+    B04("Bayer Leverkusen", "#a52019", 15, 10, 4, 1, 49, 13, 36, 26),
     BMG("Borussia Mönchengladbach", "#000000", 15, 10, 4, 1, 49, 13, 36, 26),
     VfB("VfB Stuttgart", "#ffffff", 15, 10, 4, 1, 49, 13, 36, 26),
     SCF("SC Freiburg", "#e4002b", 15, 10, 4, 1, 49, 13, 36, 26),
@@ -19,7 +19,8 @@ public enum Team {
     KOE("FC Köln", "#ff0000", 15, 10, 4, 1, 49, 13, 36, 26),
     BOC("VfL Bochum", "#1456a2", 15, 10, 4, 1, 49, 13, 36, 26),
     SVW("SV Werder Bremen", "#008149", 15, 10, 4, 1, 49, 13, 36, 26),
-    S04("FC Schalke 04", "#004b9c", 15, 10, 4, 1, 49, 13, 36, 26);
+    S04("FC Schalke 04", "#004b9c", 15, 10, 4, 1, 49, 13, 36, 26),
+    FCU("1. FC Union Berlin", "#ffffff",15,10,4,1,49,13,36,26);
     // DSC("Arminia Bielefeld", Color.web("#dc052d")), // Deutscher Sportclub
     // (Arminia Bielefeld)
     // FCU("Union Berlin"), // (1.) Fußballclub Union (Berlin)

@@ -88,7 +88,6 @@ public class Season {
     }
 
     public static void loadTeamScores() {
-        System.out.println(Team.FCB.p);
         for (Team team : Team.values()) {
             team.p = 0;
             team.gf = 0;
@@ -125,7 +124,7 @@ public class Season {
                 }
             }
 
-            team.d = team.p - team.w + team.l;
+            team.d = team.p - (team.w + team.l);
             team.gd = team.gf - team.ga;
             team.pts = team.w * 3 + team.d;
         }

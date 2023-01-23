@@ -19,42 +19,42 @@ public class Season {
                     map.put(
                             LocalDate.of(2022, 8, 5),
                             Arrays.asList(
-                                    new Match(Team.SGE, Team.FCB, 1, 1, 6)));
+                                    new Match(Team.SGE, Team.FCB, 1, 1, 6, "Arena")));
                     map.put(
                             LocalDate.of(2022, 8, 6),
                             Arrays.asList(
-                                    new Match(Team.FCU, Team.BSC, 1, 3, 1),
-                                    new Match(Team.BMG, Team.TSG, 1, 3, 1),
-                                    new Match(Team.WOB, Team.SVW, 1, 2, 2),
-                                    new Match(Team.BOC, Team.M05, 1, 1, 2),
-                                    new Match(Team.FCA, Team.SCF, 1, 0, 4),
-                                    new Match(Team.BVB, Team.B04, 1, 1, 0)));
+                                    new Match(Team.FCU, Team.BSC, 1, 3, 1, "Arena"),
+                                    new Match(Team.BMG, Team.TSG, 1, 3, 1, "Arena"),
+                                    new Match(Team.WOB, Team.SVW, 1, 2, 2, "Arena"),
+                                    new Match(Team.BOC, Team.M05, 1, 1, 2, "Arena"),
+                                    new Match(Team.FCA, Team.SCF, 1, 0, 4, "Arena"),
+                                    new Match(Team.BVB, Team.B04, 1, 1, 0, "Arena")));
                     map.put(
                             LocalDate.of(2022, 8, 7),
                             Arrays.asList(
-                                    new Match(Team.VfB, Team.RBL, 1, 1, 1),
-                                    new Match(Team.KOE, Team.S04, 1, 3, 1)));
+                                    new Match(Team.VfB, Team.RBL, 1, 1, 1, "Arena"),
+                                    new Match(Team.KOE, Team.S04, 1, 3, 1, "Arena")));
                     break;
 
                 case 16:
                     map.put(
                             LocalDate.of(2023, 1, 20),
                             Arrays.asList(
-                                    new Match(Team.RBL, Team.FCB, 16, 1, 1)));
+                                    new Match(Team.RBL, Team.FCB, 16, 1, 1, "Arena")));
                     map.put(
                             LocalDate.of(2023, 1, 21),
                             Arrays.asList(
-                                    new Match(Team.FCU, Team.TSG, 16, 3, 1),
-                                    new Match(Team.SGE, Team.S04, 16, 3, 0),
-                                    new Match(Team.WOB, Team.SCF, 16, 6, 0),
-                                    new Match(Team.BOC, Team.BSC, 16, 3, 1),
-                                    new Match(Team.VfB, Team.M05, 16, 1, 1),
-                                    new Match(Team.KOE, Team.SVW, 16, 7, 1)));
+                                    new Match(Team.FCU, Team.TSG, 16, 3, 1, "Arena"),
+                                    new Match(Team.SGE, Team.S04, 16, 3, 0, "Arena"),
+                                    new Match(Team.WOB, Team.SCF, 16, 6, 0, "Arena"),
+                                    new Match(Team.BOC, Team.BSC, 16, 3, 1, "Arena"),
+                                    new Match(Team.VfB, Team.M05, 16, 1, 1, "Arena"),
+                                    new Match(Team.KOE, Team.SVW, 16, 7, 1, "Arena")));
                     map.put(
                             LocalDate.of(2023, 1, 21),
                             Arrays.asList(
-                                    new Match(Team.BVB, Team.FCA, 16, 4, 3),
-                                    new Match(Team.BMG, Team.B04, 16, 2, 3)));
+                                    new Match(Team.BVB, Team.FCA, 16, 4, 3, "Arena"),
+                                    new Match(Team.BMG, Team.B04, 16, 2, 3, "Arena")));
                     break;
 
                 case 18:
@@ -88,6 +88,7 @@ public class Season {
     }
 
     public static void loadTeamScores() {
+        System.out.println(Team.FCB.p);
         for (Team team : Team.values()) {
             team.p = 0;
             team.gf = 0;

@@ -6,7 +6,7 @@ public class Match {
     public Team a;
     public Team b;
     public int matchday;
-    public String stadium = "Red Bull Arena";
+    public String stadium;
     public LocalDate date;
 
     public int aGoals = 0;
@@ -19,12 +19,13 @@ public class Match {
         this.stadium = stadium;
     }
 
-    public Match(Team a, Team b, int matchday, int aGoals, int bGoals) {
+    public Match(Team a, Team b, int matchday, int aGoals, int bGoals, String stadium) {
         this.a = a;
         this.b = b;
         this.matchday = matchday;
         this.aGoals = aGoals;
         this.bGoals = bGoals;
+        this.stadium = stadium;
     }
 
     public boolean hasPassed() {

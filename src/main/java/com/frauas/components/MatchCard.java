@@ -3,6 +3,7 @@ package com.frauas.components;
 import java.util.Arrays;
 
 import com.frauas.models.Match;
+import com.frauas.models.Season;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -87,12 +88,14 @@ public class MatchCard extends VBox {
             aGoalTf.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.ENTER) {
                     match.aGoals = Integer.valueOf(aGoalTf.getText());
+                    Season.loadTeamScores();
                 }
             });
 
             bGoalTf.setOnKeyPressed(event -> {
                 if (event.getCode() == KeyCode.ENTER) {
                     match.bGoals = Integer.valueOf(bGoalTf.getText());
+                    Season.loadTeamScores();
                 }
             });
 

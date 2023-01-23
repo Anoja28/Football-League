@@ -47,8 +47,6 @@ public class LeaguePage extends VBox {
     private int currentMatchday = 18;
 
     public LeaguePage() {
-        Season.loadMatchdayList();
-        Season.loadTeamScores();
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../league.fxml"));
         fxmlLoader.setController(this);

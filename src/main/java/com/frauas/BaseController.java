@@ -2,6 +2,7 @@ package com.frauas;
 
 import java.io.IOException;
 
+import com.frauas.models.Season;
 import com.frauas.pages.LeaguePage;
 import com.frauas.pages.PlayerEntryPage;
 
@@ -81,6 +82,9 @@ public class BaseController {
         root = scrollPane;
         scrollPane.setHbarPolicy(ScrollBarPolicy.NEVER);
         scrollPane.setContent(App.loadFXML("home"));
+
+        Season.loadMatchdayList();
+        Season.loadTeamScores();
 
         tabHome.setStyle("-fx-background-color: #aba2f9;");
     }

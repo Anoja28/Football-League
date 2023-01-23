@@ -18,8 +18,6 @@
       <VBox maxWidth="${primaryButton.width + 100}" spacing="4" alignment="center_left">
          <Label text="Username" style="-fx-text-fill: white" />
          <TextField fx:id="usernameTF" promptText="Enter username" styleClass="tfield" />
-         <Label text="Password" style="-fx-text-fill: white" />
-         <PasswordField styleClass="tfield" />
          <Region prefHeight="10" />
          <Button fx:id="primaryButton" text="Login" onAction="#switchToSecondary"
             styleClass="btn" />

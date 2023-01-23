@@ -151,3 +151,15 @@
     -fx-background-color: black;
     -fx-text-fill: white;
 }
+
+.matchday-select-btn {
+    -fx-background-color: -fx-gray-2;
+    -fx-padding: 16 20 16 20;
+    -fx-font-weight: 700;
+    -fx-font-size: 12;
+    -fx-cursor: hand;
+}
+
+.matchday-select-btn:hover {
+    -fx-background-color: -fx-gray-1;
+}

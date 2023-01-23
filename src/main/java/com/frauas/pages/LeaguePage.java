@@ -3,7 +3,6 @@ package com.frauas.pages;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,13 +10,19 @@ import com.frauas.BaseController;
 import com.frauas.components.LeagueTable;
 import com.frauas.components.MatchCard;
 import com.frauas.models.Match;
-import com.frauas.models.Team;
+import com.frauas.models.Season;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 public class LeaguePage extends VBox {
@@ -25,12 +30,26 @@ public class LeaguePage extends VBox {
     VBox createRoot;
 
     @FXML
+    Label seasonHeader;
+
+    @FXML
+    HBox matchdaySelect;
+
+    @FXML
     HBox dateSelect;
 
     @FXML
     VBox matchesContainer;
 
+    @FXML
+    VBox leagueTableContainer;
+
+    private int currentMatchday = 18;
+
     public LeaguePage() {
+        Season.loadMatchdayList();
+        Season.loadTeamScores();
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../league.fxml"));
         fxmlLoader.setController(this);
         try {
@@ -42,36 +61,86 @@ public class LeaguePage extends VBox {
         prefWidthProperty().bind(BaseController.root.widthProperty());
     }
 
+    private void update() {
+        for (Pane pane : Arrays.asList(
+                matchdaySelect,
+                dateSelect,
+                matchesContainer,
+                leagueTableContainer)) {
+            pane.getChildren().clear();
+        }
+
+        initialize();
+    }
+
     public void initialize() {
-        Map<LocalDate, List<Match>> season = new HashMap<>();
-        season.put(
-                LocalDate.of(2023, 1, 27),
-                Arrays.asList(
-                        new Match(Team.RBL, Team.VfB, 18, "Red Bull Arena")));
+        seasonHeader.setText("BUNDESLIGA MATCHDAY " + currentMatchday);
 
-        season.put(
-                LocalDate.of(2023, 1, 28),
-                Arrays.asList(
-                        new Match(Team.SCF, Team.FCA, 18, "Europa-Park Stadion"),
-                        new Match(Team.M05, Team.BOC, 18, "MEWA ARENA"),
-                        new Match(Team.TSG, Team.BMG, 18, "PreZero Arena"),
-                        new Match(Team.BSC, Team.KOE, 18, "Olympiastadion"),
-                        new Match(Team.SVW, Team.WOB, 18, "wohninvest WESERSTADION"),
-                        new Match(Team.FCB, Team.SGE, 18, "Allianz Arena")));
+        Label matchDayPrev = new Label("⟵ MATCHDAY " + (currentMatchday - 1));
+        Label matchDayNext = new Label("MATCHDAY " + (currentMatchday + 1) + " ⟶");
+        for (Label mdBtn : Arrays.asList(matchDayPrev, matchDayNext)) {
+            mdBtn.getStyleClass().add("matchday-select-btn");
+        }
 
-        season.put(
-                LocalDate.of(2023, 1, 29),
-                Arrays.asList(
-                        new Match(Team.B04, Team.BVB, 18, "BayArena")));
+        if (currentMatchday > 1) {
+            matchdaySelect.getChildren().add(matchDayPrev);
+        }
+
+        if (currentMatchday < 34) {
+            matchdaySelect.getChildren().add(matchDayNext);
+        }
+
+        Region mdMenuSpacer = new Region();
+        HBox.setHgrow(mdMenuSpacer, Priority.ALWAYS);
+        matchdaySelect.getChildren().add(mdMenuSpacer);
+
+        Label jumpToL = new Label("JUMP TO MATCHDAY");
+        jumpToL.setStyle("-fx-font-weight: 700");
+
+        TextField jumpToTf = new TextField(String.valueOf(currentMatchday));
+        jumpToTf.getStyleClass().add("tfield");
+        jumpToTf.setMaxWidth(40);
+
+        HBox jumpToContainer = new HBox();
+        jumpToContainer.setAlignment(Pos.CENTER);
+        jumpToContainer.setSpacing(10);
+        jumpToContainer.getChildren().add(jumpToL);
+        jumpToContainer.getChildren().add(jumpToTf);
+        matchdaySelect.getChildren().add(jumpToContainer);
+
+        jumpToTf.textProperty().addListener((obs, oldVal, newVal) -> {
+            if (!newVal.matches("\\d*")) {
+                jumpToTf.setText(newVal.replaceAll("[^\\d]", ""));
+            }
+        });
+
+        jumpToTf.setOnKeyPressed(event -> {
+            int val = Integer.valueOf(jumpToTf.getText());
+            if (event.getCode() == KeyCode.ENTER && val > 0 && val < 35) {
+                currentMatchday = val;
+                update();
+            }
+        });
+
+        matchDayNext.setOnMouseClicked(action -> {
+            currentMatchday++;
+            update();
+        });
+        matchDayPrev.setOnMouseClicked(action -> {
+            currentMatchday--;
+            update();
+        });
+
+        Map<LocalDate, List<Match>> matchdayMap = Season.getMatchdayList(currentMatchday);
 
         boolean selectedFirst = false;
-        for (LocalDate date : season.keySet()) {
+        for (LocalDate date : matchdayMap.keySet()) {
             Label dateL = new Label(date.getDayOfWeek().name().substring(0, 3) + ", " + date.getDayOfMonth());
             if (selectedFirst) {
                 dateL.getStyleClass().add("date-select-btn");
             } else {
                 dateL.getStyleClass().add("date-select-btn-selected");
-                for (Match match : season.get(date)) {
+                for (Match match : matchdayMap.get(date)) {
                     match.date = date;
                     matchesContainer.getChildren().add(new MatchCard(match));
                 }
@@ -84,7 +153,7 @@ public class LeaguePage extends VBox {
                 }
 
                 matchesContainer.getChildren().clear();
-                for (Match match : season.get(date)) {
+                for (Match match : matchdayMap.get(date)) {
                     match.date = date;
                     matchesContainer.getChildren().add(new MatchCard(match));
                 }
@@ -104,6 +173,6 @@ public class LeaguePage extends VBox {
             dateSelect.getChildren().add(dateL);
         }
 
-        createRoot.getChildren().add(new LeagueTable());
+        leagueTableContainer.getChildren().add(new LeagueTable());
     }
 }

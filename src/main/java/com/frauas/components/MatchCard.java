@@ -1,12 +1,16 @@
 package com.frauas.components;
 
+import java.util.Arrays;
+
 import com.frauas.models.Match;
 
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -29,7 +33,7 @@ public class MatchCard extends VBox {
 
         Label leftL = new Label(match.a.toString());
         Label rightL = new Label(match.b.toString());
-        Label timeL = new Label("20:30");
+        HBox midSection = new HBox();
         leftL.setPrefWidth(100);
         rightL.setPrefWidth(100);
 
@@ -52,7 +56,7 @@ public class MatchCard extends VBox {
 
         hero.getChildren().add(leftL);
         hero.getChildren().add(leftImgL);
-        hero.getChildren().add(timeL);
+        hero.getChildren().add(midSection);
         hero.getChildren().add(rightImgL);
         hero.getChildren().add(rightL);
 
@@ -65,7 +69,45 @@ public class MatchCard extends VBox {
             }
         }
 
-        timeL.setStyle("-fx-font-size: 12; -fx-font-weight: 200; -fx-padding: 2 8 2 8; -fx-text-fill: black;");
+        if (match.hasPassed()) {
+            TextField aGoalTf = new TextField(Integer.toString(match.aGoals));
+            TextField bGoalTf = new TextField(Integer.toString(match.bGoals));
+            for (TextField tField : Arrays.asList(aGoalTf, bGoalTf)) {
+                tField.setStyle(
+                        "-fx-background-color: transparent; -fx-font-weight: 800; -fx-font-size: 18;");
+                tField.setMaxWidth(40);
+                tField.setAlignment(Pos.CENTER);
+                tField.textProperty().addListener((obs, oldVal, newVal) -> {
+                    if (!newVal.matches("\\d*")) {
+                        tField.setText(newVal.replaceAll("[^\\d]", ""));
+                    }
+                });
+            }
+
+            aGoalTf.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.ENTER) {
+                    match.aGoals = Integer.valueOf(aGoalTf.getText());
+                }
+            });
+
+            bGoalTf.setOnKeyPressed(event -> {
+                if (event.getCode() == KeyCode.ENTER) {
+                    match.bGoals = Integer.valueOf(bGoalTf.getText());
+                }
+            });
+
+            Label colonL = new Label();
+            colonL.setText(" : ");
+            colonL.setStyle("-fx-font-weight: 800; -fx-font-size: 18; -fx-padding: 2 8 2 8;");
+            midSection.getChildren().add(aGoalTf);
+            midSection.getChildren().add(colonL);
+            midSection.getChildren().add(bGoalTf);
+        } else {
+            Label timeL = new Label();
+            timeL.setText("20:30");
+            timeL.setStyle("-fx-font-size: 12; -fx-font-weight: 200; -fx-padding: 2 8 2 8;");
+            midSection.getChildren().add(timeL);
+        }
 
         HBox info = new HBox();
         Label stdL = new Label(

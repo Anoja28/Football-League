@@ -6,12 +6,8 @@ import com.frauas.models.User;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.VBox;
 
 public class PrimaryController {
-
-    @FXML
-    VBox test;
 
     @FXML
     TextField usernameTF;

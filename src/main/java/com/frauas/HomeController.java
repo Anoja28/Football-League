@@ -35,7 +35,7 @@ public class HomeController {
     public void initialize() {
         welcomeLabel.setText("Welcome, " + User.getInstance().getUsername());
 
-        Match um = new Match(Team.RBL, Team.FCB, 18, "Red Bull Arena");
+        Match um = new Match(Team.RBL, Team.VfB, 18, "Red Bull Arena");
         um.date = LocalDate.of(2023, 1, 27);
         VBox upcomingMatch = new MatchCard(um);
         upcomingSection.getChildren().add(upcomingMatch);

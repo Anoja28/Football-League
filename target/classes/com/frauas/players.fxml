@@ -14,5 +14,25 @@
     xmlns="http://javafx.com/javafx/8.0.171" VBox.vgrow="always"
     xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.frauas.PlayersController" spacing="20">
     <Label text="ALL LEAGUE PLAYERS" styleClass="section-header" />
+    <HBox spacing="10">
+        <VBox>
+            <Label text="Search Name" />
+            <TextField styleClass="tfield" fx:id="searchTF" />
+        </VBox>
+        <VBox>
+            <Label text="Team" />
+            <ComboBox styleClass="cbox" fx:id="teamCB" />
+        </VBox>
+        <VBox>
+            <Label text="Position" />
+            <ComboBox styleClass="cbox" fx:id="posCB" />
+        </VBox>
+        <VBox>
+            <Label text="Nationality" />
+            <ComboBox styleClass="cbox" fx:id="nationCB" />
+        </VBox>
+    </HBox>
     <VBox fx:id="tableContainer" HBox.hgrow="always" />
+    <Region prefHeight="30" />
+    <HBox fx:id="pageSelectContainer" />
 </VBox>

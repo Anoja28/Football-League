@@ -9,6 +9,7 @@ import org.bson.Document;
 import org.bson.conversions.Bson;
 import org.bson.types.ObjectId;
 
+import com.frauas.PlayersController;
 import com.frauas.models.Player;
 import com.frauas.models.Position;
 import com.frauas.models.Team;
@@ -23,7 +24,6 @@ import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.Filters;
-import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.InsertOneResult;
@@ -72,14 +72,40 @@ public class DatabaseAPI {
         return players;
     }
 
-    public static List<Player> getPlayers() {
+    public static List<Player> getPlayers(int page, Bson filter) {
         connect();
         MongoCollection<Document> collection = database.getCollection("players");
 
         MongoCursor<Document> cursor = collection.find()
-                .sort(Sorts.descending("firstName")).iterator();
+                .filter(filter)
+                .limit(PlayersController.pageSize)
+                .skip(PlayersController.pageSize * (page - 1))
+                .iterator();
 
         return getPlayers(cursor);
+    }
+
+    public static int getPlayerCount(Bson filter) {
+        connect();
+        MongoCollection<Document> collection = database.getCollection("players");
+        return (int) collection.countDocuments(filter);
+    }
+
+    public static List<String> getDistinctNations() {
+        connect();
+        MongoCollection<Document> collection = database.getCollection("players");
+        MongoCursor<String> cursor = collection.distinct("nationality", String.class).iterator();
+        List<String> nations = new ArrayList<>();
+
+        try {
+            while (cursor.hasNext()) {
+                nations.add(cursor.next());
+            }
+        } finally {
+            cursor.close();
+        }
+
+        return nations;
     }
 
     public static List<Player> getPlayers(Team team) {
@@ -88,7 +114,7 @@ public class DatabaseAPI {
 
         MongoCursor<Document> cursor = collection.find()
                 .filter(Filters.eq("team", team.name()))
-                .sort(Sorts.descending("firstName")).iterator();
+                .iterator();
 
         return getPlayers(cursor);
     }

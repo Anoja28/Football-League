@@ -390,6 +390,305 @@ public class Season {
                                     new Match(Team.B04, Team.BVB, 18, "BayArena")));
                     break;
 
+                case 19:
+                    map.put(
+                            LocalDate.of(2023, 2, 3),
+                            Arrays.asList(
+                                    new Match(Team.FCA, Team.B04, 19, "WWK ARENA")));
+
+                    map.put(
+                            LocalDate.of(2023, 2, 04),
+                            Arrays.asList(
+                                    new Match(Team.BVB, Team.SCF, 19, "SIGNAL IDUNA PARK"),
+                                    new Match(Team.FCU, Team.M05, 19, "Stadion An der Alten Försterei"),
+                                    new Match(Team.KOE, Team.RBL, 19, "RheinEnergieSTADION"),
+                                    new Match(Team.SGE, Team.BSC, 19, "Deutsche Bank Park"),
+                                    new Match(Team.BOC, Team.TSG, 19, "Vonovia Ruhrstadion"),
+                                    new Match(Team.BMG, Team.S04, 19, "Stadion im Borussia-Park")));
+
+                    map.put(
+                            LocalDate.of(2023, 2, 05),
+                            Arrays.asList(
+                                    new Match(Team.VfB, Team.SVW, 19, "Mercedes-Benz Arena"),
+                                    new Match(Team.WOB, Team.FCB, 19, "Volkswagen Arena")));
+                    break;
+
+                case 20:
+                    map.put(
+                            LocalDate.of(2023, 2, 10),
+                            Arrays.asList(
+                                    new Match(Team.S04, Team.WOB, 20, "Veltins-Arena")));
+
+                    map.put(
+                            LocalDate.of(2023, 2, 11),
+                            Arrays.asList(
+                                    new Match(Team.FCB, Team.BOC, 20, "Allianz Arena"),
+                                    new Match(Team.SCF, Team.VfB, 20, "Europa-Park Stadion"),
+                                    new Match(Team.M05, Team.FCA, 20, "Mewa Arena"),
+                                    new Match(Team.TSG, Team.B04, 20, "PreZero Arena"),
+                                    new Match(Team.SVW, Team.BVB, 20, "Wohninvest-Weserstadion"),
+                                    new Match(Team.RBL, Team.FCU, 20, "Red Bull Arena")));
+
+                    map.put(
+                            LocalDate.of(2023, 2, 12),
+                            Arrays.asList(
+                                    new Match(Team.BSC, Team.BMG, 20, "Olympiastadion Berlin"),
+                                    new Match(Team.KOE, Team.SGE, 20, "RheinEnergieSTADION")));
+                    break;
+
+                case 21:
+                    map.put(
+                            LocalDate.of(2023, 2, 17),
+                            Arrays.asList(
+                                    new Match(Team.FCA, Team.TSG, 21, "WWK ARENA")));
+
+                    map.put(
+                            LocalDate.of(2023, 2, 18),
+                            Arrays.asList(
+                                    new Match(Team.BMG, Team.FCB, 21, "Stadion im Borussia-Park"),
+                                    new Match(Team.WOB, Team.RBL, 21, "Volkswagen Arena"),
+                                    new Match(Team.BOC, Team.SCF, 21, "Vonovia Ruhrstadion"),
+                                    new Match(Team.VfB, Team.KOE, 21, "Mercedes-Benz Arena"),
+                                    new Match(Team.SGE, Team.SVW, 21, "Deutsche Bank Park")));
+
+
+                    map.put(
+                            LocalDate.of(2023, 2, 19),
+                            Arrays.asList(
+                                    new Match(Team.FCU, Team.S04, 21, "Stadion An der Alten Försterei"),
+                                    new Match(Team.BVB, Team.BSC, 21, "SIGNAL IDUNA PARK"),
+                                    new Match(Team.B04, Team.M05, 21, "BayArena")));
+                    break;
+
+                case 22:
+                    map.put(
+                            LocalDate.of(2023, 2, 24),
+                            Arrays.asList(
+                                    new Match(Team.M05, Team.BMG, 22, "Mewa Arena")));
+
+                    map.put(
+                            LocalDate.of(2023, 2, 25),
+                            Arrays.asList(
+                                    new Match(Team.RBL, Team.SGE, 22, "Red Bull Arena"),
+                                    new Match(Team.KOE, Team.WOB, 22, "RheinEnergieSTADION"),
+                                    new Match(Team.TSG, Team.BVB, 22, "PreZero Arena"),
+                                    new Match(Team.BSC, Team.FCA, 22, "Olympiastadion Berlin"),
+                                    new Match(Team.SVW, Team.BOC, 22, "Wohninvest-Weserstadion"),
+                                    new Match(Team.S04, Team.VfB, 22, "Veltins-Arena")));
+
+                    map.put(
+                            LocalDate.of(2023, 2, 26),
+                            Arrays.asList(
+                                    new Match(Team.SCF, Team.B04, 22, "Europa-Park Stadion"),
+                                    new Match(Team.FCB, Team.FCU, 22, "Allianz Arena")));
+                    break;
+
+                case 23:
+                    map.put(
+                            LocalDate.of(2023, 3, 3),
+                            Arrays.asList(
+                                    new Match(Team.BVB, Team.RBL, 23, "SIGNAL IDUNA PARK")));
+
+                    map.put(
+                            LocalDate.of(2023, 3, 4),
+                            Arrays.asList(
+                                    new Match(Team.FCU, Team.KOE, 23, "Stadion An der Alten Försterei"),
+                                    new Match(Team.M05, Team.TSG, 23, "Mewa Arena"),
+                                    new Match(Team.BMG, Team.SCF, 23, "Stadion im Borussia-Park"),
+                                    new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.FCA, Team.SVW, 23, "WWK Arena"),
+                                    new Match(Team.VfB, Team.FCB, 23, "Mercedes-Benz Arena")));
+
+                    map.put(
+                            LocalDate.of(2023, 3, 5),
+                            Arrays.asList(
+                                    new Match(Team.B04, Team.BSC, 23, "BayArena"),
+                                    new Match(Team.WOB, Team.SGE, 23, "Volkswagen Arena")));
+                    break;
+
+                case 24:
+                    map.put(
+                            LocalDate.of(2023, 3, 10),
+                            Arrays.asList(
+                                    new Match(Team.KOE, Team.BOC, 24, "RheinEnergieSTADION")));
+
+                    map.put(
+                            LocalDate.of(2023, 3, 11),
+                            Arrays.asList(
+                                    new Match(Team.FCB, Team.FCA, 24, "Allianz Arena"),
+                                    new Match(Team.RBL, Team.BMG, 24, "Red Bull Arena"),
+                                    new Match(Team.SGE, Team.VfB, 24, "Deutsche Bank Park"),
+                                    new Match(Team.BSC, Team.M05, 24, "Olympiastadion Berlin"),
+                                    new Match(Team.S04, Team.BVB, 24, "Veltins-Arena")));
+
+
+                    map.put(
+                            LocalDate.of(2023, 3, 12),
+                            Arrays.asList(
+                                    new Match(Team.SCF, Team.TSG, 24, "Europa-Park Stadion"),
+                                    new Match(Team.SVW, Team.B04, 24, "Wohninvest-Weserstadion"),
+                                    new Match(Team.WOB, Team.FCU, 24, "Volkswagen Arena")));
+                    break;
+
+                case 25:
+                    map.put(
+                            LocalDate.of(2023, 3, 17),
+                            Arrays.asList(
+                                    new Match(Team.BMG, Team.SVW, 25, "Stadion im Borussia-Park")));
+
+                    map.put(
+                            LocalDate.of(2023, 3, 18),
+                            Arrays.asList(
+                                    new Match(Team.TSG, Team.BSC, 25, "PreZero Arena"),
+                                    new Match(Team.BOC, Team.RBL, 25, "Vonovia Ruhrstadion"),
+                                    new Match(Team.FCA, Team.S04, 25, "WWK ARENA"),
+                                    new Match(Team.VfB, Team.WOB, 25, "Mercedes-Benz Arena"),
+                                    new Match(Team.BVB, Team.KOE, 25, "SIGNAL IDUNA PARK")));
+
+
+                    map.put(
+                            LocalDate.of(2023, 3, 19),
+                            Arrays.asList(
+                                    new Match(Team.FCU, Team.SGE, 25, "Stadion An der Alten Försterei"),
+                                    new Match(Team.B04, Team.FCB, 25, "BayArena"),
+                                    new Match(Team.M05, Team.SCF, 25, "Mewa Arena")));
+                    break;
+
+                case 26:
+                    map.put(
+                            LocalDate.of(2023, 4, 1),
+                            Arrays.asList(
+                                    new Match(Team.FCB, Team.BVB, 26, "Allianz Arena"),
+                                    new Match(Team.RBL, Team.M05, 26, "Red Bull Arena"),
+                                    new Match(Team.FCU, Team.VfB, 26, "Stadion An der Alten Försterei"),
+                                    new Match(Team.SCF, Team.BSC, 26, "Europa-Park Stadion"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.KOE, Team.BMG, 26, "RheinEnergieSTADION"),
+                                    new Match(Team.SGE, Team.BOC, 26, "Deutsche Bank Park"),
+                                    new Match(Team.WOB, Team.FCA, 26, "Volkswagen Arena"),
+                                    new Match(Team.S04, Team.B04, 26, "Veltins-Arena"),
+                                    new Match(Team.SVW, Team.TSG, 26, "Wohninvest-Weserstadion")));
+                    break;
+
+                case 27:
+                    map.put(
+                            LocalDate.of(2023, 4, 8),
+                            Arrays.asList(
+                                    new Match(Team.BVB, Team.FCU, 27, "SIGNAL IDUNA PARK"),
+                                    new Match(Team.B04, Team.SGE, 27, "BayArena"),
+                                    new Match(Team.SCF, Team.FCB, 27, "Europa-Park Stadion"),
+                                    new Match(Team.M05, Team.SVW, 27, "Mewa Arena"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.TSG, Team.S04, 27, "PreZero Arena"),
+                                    new Match(Team.BMG, Team.WOB, 27, "Stadion im Borussia-Park"),
+                                    new Match(Team.BOC, Team.VfB, 27, "Vonovia Ruhrstadion"),
+                                    new Match(Team.FCA, Team.KOE, 27, "WWK ARENA"),
+                                    new Match(Team.BSC, Team.RBL, 27, "Olympiastadion Belrin")));
+                    break;
+
+                case 28:
+                    map.put(
+                            LocalDate.of(2023, 4, 15),
+                            Arrays.asList(
+                                    new Match(Team.WOB, Team.B04, 28, "Volkswagen Arena"),
+                                    new Match(Team.VfB, Team.BVB, 28, "Mercedes-Benz Arena"),
+                                    new Match(Team.S04, Team.BSC, 28, "Veltins Arena"),
+                                    new Match(Team.SVW, Team.SCF, 28, "Wohninvest-Weserstadion"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.FCB, Team.TSG, 28, "Allianz Arena"),
+                                    new Match(Team.RBL, Team.FCA, 28, "Red Bull Arena"),
+                                    new Match(Team.FCU, Team.BOC, 28, "Stadion An der Alten Försterei"),
+                                    new Match(Team.KOE, Team.M05, 28, "RheinEnergieSTADION"),
+                                    new Match(Team.SGE, Team.BMG, 28, "Deutsche Bank Park")));
+                    break;
+
+                case 29:
+                    map.put(
+                            LocalDate.of(2023, 4, 22),
+                            Arrays.asList(
+                                    new Match(Team.BVB, Team.SGE, 29, "SIGNAL IDUNA PARK"),
+                                    new Match(Team.B04, Team.RBL, 29, "BayArena"),
+                                    new Match(Team.SCF, Team.S04, 29, "Europa-Park Stadion"),
+                                    new Match(Team.M05, Team.FCB, 29, "Mewa Arena"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.TSG, Team.KOE, 29, "PreZero Arena"),
+                                    new Match(Team.BMG, Team.FCU, 29, "Stadion im Borussia-Park"),
+                                    new Match(Team.BOC, Team.WOB, 29, "Vonovia Ruhrstadion"),
+                                    new Match(Team.FCA, Team.VfB, 29, "WWK ARENA"),
+                                    new Match(Team.BSC, Team.SVW, 29, "Olympiastadion Berlin")));
+                    break;
+
+                case 30:
+                    map.put(
+                            LocalDate.of(2023, 4, 29),
+                            Arrays.asList(
+                                    new Match(Team.FCB, Team.BSC, 30, "Allianz Arena"),
+                                    new Match(Team.RBL, Team.TSG, 30, "Red Bull Arena"),
+                                    new Match(Team.FCU, Team.B04, 30, "Stadion An der Alten Försterei"),
+                                    new Match(Team.KOE, Team.SCF, 30, "RheinEnergieSTADION"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.SGE, Team.FCA, 30, "Deutsche Bank Park"),
+                                    new Match(Team.WOB, Team.M05, 30, "Volkswagen Arena"),
+                                    new Match(Team.BOC, Team.BVB, 30, "Vonovia Ruhrstadion"),
+                                    new Match(Team.VfB, Team.BMG, 30, "Mercedes-Benz Arena"),
+                                    new Match(Team.S04, Team.SVW, 30, "Veltins-Arena")));
+                    break;
+
+                case 31:
+                    map.put(
+                            LocalDate.of(2023, 5, 6),
+                            Arrays.asList(
+                                    new Match(Team.BVB, Team.WOB, 31, "SINGAL IDUNA PARK"),
+                                    new Match(Team.B04, Team.KOE, 31, "BayArena"),
+                                    new Match(Team.SCF, Team.RBL, 31, "Europa-Park Stadion"),
+                                    new Match(Team.M05, Team.S04, 31, "Mewa Arena"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.TSG, Team.SGE, 31, "PreZero Arena"),
+                                    new Match(Team.BMG, Team.BOC, 31, "Stadion im Borussia-Park"),
+                                    new Match(Team.FCA, Team.FCU, 31, "WWK ARENA"),
+                                    new Match(Team.BSC, Team.VfB, 31, "Olympiastadion Berlin"),
+                                    new Match(Team.SVW, Team.FCB, 31, "Wohninvest-Weserstadion")));
+                    break;
+
+                case 32:
+                    map.put(
+                            LocalDate.of(2023, 5, 13),
+                            Arrays.asList(
+                                    new Match(Team.FCB, Team.S04, 32, "Allianz Arena"),
+                                    new Match(Team.BVB, Team.BMG, 32, "SIGNAL IDUNA PARK"),
+                                    new Match(Team.RBL, Team.SVW, 32, "Red Bull Arena"),
+                                    new Match(Team.FCU, Team.SCF, 32, "Stadion An der Alten Försterei"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.KOE, Team.BSC, 32, "RehinEenrgieSTADION"),
+                                    new Match(Team.SGE, Team.M05, 32, "Deutsche Bank Park"),
+                                    new Match(Team.WOB, Team.BVB, 32, "Volkswagen Arena"),
+                                    new Match(Team.BOC, Team.FCA, 32, "MVonovia Ruhrstadion"),
+                                    new Match(Team.VfB, Team.B04, 32, "Mercedes-Benz Park")));
+                    break;
+
+                case 33:
+                    map.put(
+                            LocalDate.of(2023, 5, 20),
+                            Arrays.asList(
+                                    new Match(Team.FCB, Team.RBL, 33, "Allianz Arena"),
+                                    new Match(Team.B04, Team.BMG, 33, "BayArena"),
+                                    new Match(Team.SCF, Team.WOB, 33, "Europa-Park Stadion"),
+                                    new Match(Team.M05, Team.VfB, 33, "Mewa Arena"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.TSG, Team.FCU, 33, "PreZero Arena"),
+                                    new Match(Team.FCA, Team.BVB, 33, "WWK ARENA"),
+                                    new Match(Team.BSC, Team.BOC, 33, "Olympiastadion Berlin"),
+                                    new Match(Team.S04, Team.SGE, 33, "Veltins-Arena"),
+                                    new Match(Team.SVW, Team.KOE, 33, "Wohninvest-Weserstadion")));
+                    break;
+
+                case 34:
+                    map.put(
+                            LocalDate.of(2023, 5, 27),
+                            Arrays.asList(
+                                    new Match(Team.BVB, Team.M05, 34, "SIGNAL IDUNA PARK"),
+                                    new Match(Team.RBL, Team.S04, 34, "Red Bull Arena"),
+                                    new Match(Team.FCU, Team.SVW, 34, "Stadion An der Alten Försterei"),
+                                    new Match(Team.KOE, Team.FCB, 34, "RheinEnergieSTADION"),                                             new Match(Team.BOC, Team.S04, 23, "Vonovia Ruhrstadion"),
+                                    new Match(Team.BMG, Team.FCA, 34, "Stadion im Borussia Park"),
+                                    new Match(Team.SGE, Team.SCF, 34, "Deutsche Bank Park"),
+                                    new Match(Team.WOB, Team.BSC, 34, "Volkswagen Arena"),
+                                    new Match(Team.BOC, Team.B04, 34, "Vonovia Ruhrstadion"),
+                                    new Match(Team.VfB, Team.TSG, 34, "Mercedes-Benz Arena")));
+                    break;
+
                 default:
                     break;
             }

@@ -29,6 +29,6 @@ public class Match {
     }
 
     public boolean hasPassed() {
-        return date.isBefore(LocalDate.now());
+        return date == null || date.isBefore(LocalDate.now());
     }
 }

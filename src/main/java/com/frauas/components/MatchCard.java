@@ -43,6 +43,7 @@ public class MatchCard extends VBox {
 
         Label leftImgL = new Label();
         leftImg.setFitHeight(lgHeight);
+        leftImg.setFitWidth(lgWidth);
         leftImg.setPreserveRatio(true);
         leftImgL.setPrefWidth(lgWidth);
         leftImgL.setGraphic(leftImg);
@@ -50,6 +51,7 @@ public class MatchCard extends VBox {
 
         Label rightImgL = new Label();
         rightImg.setFitHeight(lgHeight);
+        rightImg.setFitWidth(lgWidth);
         rightImg.setPreserveRatio(true);
         rightImgL.setPrefWidth(lgWidth);
         rightImgL.setGraphic(rightImg);
@@ -105,11 +107,6 @@ public class MatchCard extends VBox {
             midSection.getChildren().add(aGoalTf);
             midSection.getChildren().add(colonL);
             midSection.getChildren().add(bGoalTf);
-        } else {
-            Label timeL = new Label();
-            timeL.setText("20:30");
-            timeL.setStyle("-fx-font-size: 12; -fx-font-weight: 200; -fx-padding: 2 8 2 8;");
-            midSection.getChildren().add(timeL);
         }
 
         HBox info = new HBox();

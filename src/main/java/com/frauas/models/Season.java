@@ -286,7 +286,7 @@ public class Season {
                             LocalDate.of(2022, 11, 6),
                             Arrays.asList(
                                     new Match(Team.B04, Team.FCU, 13, 5, 0, "BayArena"),
-                                    new Match(Team.SCF, Team.S04, 13, 2, 0, "Europa-Park Stadion")));
+                                    new Match(Team.SCF, Team.KOE, 13, 2, 0, "Europa-Park Stadion")));
                     break;
 
                 case 14:
@@ -353,19 +353,19 @@ public class Season {
                     map.put(
                             LocalDate.of(2023, 1, 24),
                             Arrays.asList(
-                                    new Match(Team.S04, Team.RBL, 17, "Veltins-Arena"),
-                                    new Match(Team.FCB, Team.KOE, 17, "Allianz Arena"),
-                                    new Match(Team.TSG, Team.VfB, 17, "PreZero Arena"),
-                                    new Match(Team.BSC, Team.WOB, 17, "Olympiastadion")));
+                                    new Match(Team.S04, Team.RBL, 17,1,6, "Veltins-Arena"),
+                                    new Match(Team.FCB, Team.KOE, 17,1,1, "Allianz Arena"),
+                                    new Match(Team.TSG, Team.VfB, 17,0,5, "PreZero Arena"),
+                                    new Match(Team.BSC, Team.WOB, 17,2,2, "Olympiastadion")));
 
                     map.put(
                             LocalDate.of(2023, 1, 25),
                             Arrays.asList(
-                                    new Match(Team.M05, Team.BVB, 17, "MEWA ARENA"),
-                                    new Match(Team.B04, Team.BOC, 17, "BayArena"),
-                                    new Match(Team.SCF, Team.SGE, 17, "Europa-Park Stadion"),
-                                    new Match(Team.FCA, Team.BMG, 17, "WWK ARENA"),
-                                    new Match(Team.SVW, Team.FCU, 17, "wohninvest WESERSTADION")));
+                                    new Match(Team.M05, Team.BVB, 17,1,2, "MEWA ARENA"),
+                                    new Match(Team.B04, Team.BOC, 17,2,0, "BayArena"),
+                                    new Match(Team.SCF, Team.SGE, 17,1,1, "Europa-Park Stadion"),
+                                    new Match(Team.FCA, Team.BMG, 17,0,0, "WWK ARENA"),
+                                    new Match(Team.SVW, Team.FCU, 17,1,2, "wohninvest WESERSTADION")));
                     break;
 
                 case 18:

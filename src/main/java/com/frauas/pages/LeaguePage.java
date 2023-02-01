@@ -44,7 +44,7 @@ public class LeaguePage extends VBox {
     @FXML
     VBox leagueTableContainer;
 
-    private int currentMatchday = 18;
+    private int currentMatchday = 19;
 
     public LeaguePage() {
 

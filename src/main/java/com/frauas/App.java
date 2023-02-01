@@ -20,7 +20,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("primary"), 1280, 720);
         scene.getStylesheets().add(App.class.getResource("style/primary.css").toExternalForm());
-        stage.getIcons().add(new Image(App.class.getResource("img/SGE.png").toExternalForm()));
+        stage.getIcons().add(new Image(App.class.getResource("img/OFC.png").toExternalForm()));
         stage.setScene(scene);
         stage.show();
     }

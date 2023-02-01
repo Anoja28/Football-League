@@ -355,8 +355,8 @@ public class Season {
                             Arrays.asList(
                                     new Match(Team.S04, Team.RBL, 17,1,6, "Veltins-Arena"),
                                     new Match(Team.FCB, Team.KOE, 17,1,1, "Allianz Arena"),
-                                    new Match(Team.TSG, Team.VfB, 17,0,5, "PreZero Arena"),
-                                    new Match(Team.BSC, Team.WOB, 17,2,2, "Olympiastadion")));
+                                    new Match(Team.TSG, Team.VfB, 17,2,2, "PreZero Arena"),
+                                    new Match(Team.BSC, Team.WOB, 17,0,5, "Olympiastadion")));
 
                     map.put(
                             LocalDate.of(2023, 1, 25),
@@ -364,7 +364,7 @@ public class Season {
                                     new Match(Team.M05, Team.BVB, 17,1,2, "MEWA ARENA"),
                                     new Match(Team.B04, Team.BOC, 17,2,0, "BayArena"),
                                     new Match(Team.SCF, Team.SGE, 17,1,1, "Europa-Park Stadion"),
-                                    new Match(Team.FCA, Team.BMG, 17,0,0, "WWK ARENA"),
+                                    new Match(Team.FCA, Team.BMG, 17,1,0, "WWK ARENA"),
                                     new Match(Team.SVW, Team.FCU, 17,1,2, "wohninvest WESERSTADION")));
                     break;
 
@@ -372,23 +372,23 @@ public class Season {
                     map.put(
                             LocalDate.of(2023, 1, 27),
                             Arrays.asList(
-                                    new Match(Team.RBL, Team.VfB, 18, "Red Bull Arena")));
+                                    new Match(Team.RBL, Team.VfB, 18,2,1, "Red Bull Arena")));
 
                     map.put(
                             LocalDate.of(2023, 1, 28),
                             Arrays.asList(
-                                    new Match(Team.SCF, Team.FCA, 18, "Europa-Park Stadion"),
-                                    new Match(Team.M05, Team.BOC, 18, "MEWA ARENA"),
-                                    new Match(Team.TSG, Team.BMG, 18, "PreZero Arena"),
-                                    new Match(Team.BSC, Team.FCU, 18, "Olympiastadion"),
-                                    new Match(Team.SVW, Team.WOB, 18, "wohninvest WESERSTADION"),
-                                    new Match(Team.FCB, Team.SGE, 18, "Allianz Arena")));
+                                    new Match(Team.SCF, Team.FCA, 18,3,1, "Europa-Park Stadion"),
+                                    new Match(Team.M05, Team.BOC, 18,5,2, "MEWA ARENA"),
+                                    new Match(Team.TSG, Team.BMG, 18,1,4, "PreZero Arena"),
+                                    new Match(Team.BSC, Team.FCU, 18,0,2, "Olympiastadion"),
+                                    new Match(Team.SVW, Team.WOB, 18,2,1, "wohninvest WESERSTADION"),
+                                    new Match(Team.FCB, Team.SGE, 18,1,1, "Allianz Arena")));
 
                     map.put(
                             LocalDate.of(2023, 1, 29),
                             Arrays.asList(
-                                    new Match(Team.S04, Team.KOE, 18, "Veltins-Arena"),
-                                    new Match(Team.B04, Team.BVB, 18, "BayArena")));
+                                    new Match(Team.S04, Team.KOE, 18,0,0, "Veltins-Arena"),
+                                    new Match(Team.B04, Team.BVB, 18,0,2, "BayArena")));
                     break;
 
                 case 19:
